@@ -25,7 +25,7 @@ export default class View {
     const curElements = Array.from(this._parentElement.querySelectorAll('*'));
 
     newElements.forEach((newEl, i) => {
-      const curEl = curElements(i);
+      const curEl = curElements[i];
 
       // Updates changed TEXT
       if (
@@ -36,11 +36,10 @@ export default class View {
       }
 
       // Updates changed ATTRIBUTES
-      if (!newEl.isEqualNode(curEl)) {
+      if (!newEl.isEqualNode(curEl))
         Array.from(newEl.attributes).forEach(attr =>
           curEl.setAttribute(attr.name, attr.value)
         );
-      }
     });
   }
 
